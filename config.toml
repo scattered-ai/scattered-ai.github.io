@@ -1,0 +1,7 @@
+baseURL = 'https://scattered-ai.github.io/'
+languageCode = 'en-us'
+title = 'Scattered AI'
+
+[module]
+[[module.imports]]
+path = 'github.com/alex-shpak/hugo-book'
