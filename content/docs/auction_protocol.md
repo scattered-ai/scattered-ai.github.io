@@ -32,31 +32,54 @@ The request structure consists of the following fields:
 
 The user object has the following field:
 
-- userId (string): A string that identifies the user.
+| Name   | Type     | Description                        |
+| ------ | -------- | ---------------------------------- |
+| userId | (string) | A string that identifies the user. |
 
 ### Device Object
 
 The device object has the following fields:
 
-- mobile (object, optional): An object containing information about the mobile app used by the user.
-    - appVersion (string, optional): The version of the mobile app.
-- desktop (object, optional): An object containing information about the web app used by the user.
-    - userAgent (string, optional): The user agent string of the user's browser.
+| Name    | Type             | Description                                                             |
+| ------- | ---------------- | ----------------------------------------------------------------------- |
+| mobile  | object, optional | An object containing information about the mobile app used by the user. |
+| desktop | object, optional | An object containing information about the web app used by the user.    |
+
+#### Mobile Object
+
+The mobile object has the following fields:
+
+| Name       | Type             | Description                    |
+| ---------- | ---------------- | ------------------------------ |
+| appVersion | string, optional | The version of the mobile app. |
+
+
+#### Desktop Object
+
+The desktop object has the following fields:
+
+| Name      | Type             | Description                                  |
+| --------- | ---------------- | -------------------------------------------- |
+| userAgent | string, optional | The user agent string of the user's browser. |
 
 ### Browsing Object
 
 The browsing object has the following fields:
 
-- keywords (array of strings): An array of strings containing the search keywords, if the user used a search engine.
-- categories (array of strings): An array of strings containing the category IDs, if the user was browsing categories.
+| Name       | Type                       | Description                                                                           |
+| ---------- | -------------------------- | ------------------------------------------------------------------------------------- |
+| keywords   | array of strings, optional | An array of strings containing the search keywords, if the user used a search engine. |
+| categories | (array of strings)         | An array of strings containing the category IDs, if the user was browsing categories. |
 
 ### CurrentSession Object
 
 The currentSession object has the following fields:
 
-- visitedCategories (array of strings): An array of strings containing the IDs of the visited product categories.
-- productsViewed (array of strings): An array of strings containing the IDs of the products viewed by the user.
-- currentCart (array of strings, optional): An array of strings containing the IDs of the products in the user's shopping cart.
+| Name              | Type                       | Description                                                                         |
+| ----------------- | -------------------------- | ----------------------------------------------------------------------------------- |
+| visitedCategories | array of strings,optional  | An array of strings containing the IDs of the visited product categories.           |
+| productsViewed    | array of strings, optional | An array of strings containing the IDs of the products viewed by the user.          |
+| currentCart       | array of strings, optional | An array of strings containing the IDs of the products in the user's shopping cart. |
 
 
 ### JSON Example
