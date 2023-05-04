@@ -14,16 +14,19 @@ weight: 1
 The product feed importer accepts a list of retail products in CSV format. Each retail product object should contain the following fields:
 
 
-- externalId (string): The client's desired product ID. This is the same ID used in the response.
-- advertiserName (string): The name of the seller on the retailer site. This allows the display of only relevant products when an advertiser sets up a campaign.
-- name (string): The name of the product.
-- description (string): A description of the product.
-- brand (string): The brand of the product.
-- category (string): The category of the product. This is the same category used in the request.
-- productCodeType (string): The type of product code. Accepted values are "UPC", "EAN", "JAN", "ISBN", "ITF-14", and "CUSTOM". All types except "CUSTOM" have validation.
-- productCode (string): The product code, corresponding to the productCodeType.
-- imageUrl (string): The URL of the product's image, used for displaying a thumbnail of the product when setting up a campaign.
+| Field           | Type   | Description                                                                                                                                   |
+| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| externalId      | string | The client's desired product ID. This is the same ID used in the response.                                                                    |
+| advertiserName  | string | The name of the seller on the retailer site. This allows the display of only relevant products when an advertiser sets up a campaign.         |
+| name            | string | The name of the product.                                                                                                                      |
+| description     | string | A description of the product.                                                                                                                 |
+| brand           | string | The brand of the product.                                                                                                                     |
+| category        | string | The category of the product. This is the same category used in the request.                                                                   |
+| productCodeType | string | The type of product code. Accepted values are "UPC", "EAN", "JAN", "ISBN", "ITF-14", and "CUSTOM". All types except "CUSTOM" have validation. |
+| productCode     | string | The product code, corresponding to the productCodeType.                                                                                       |
+| imageUrl        | string | The URL of the product's image, used for displaying a thumbnail of the product when setting up a campaign.                                    |
 
+All fields are mandatory.
 
 ## Example
 
