@@ -91,7 +91,7 @@ In this example, a mobile user is searching for gaming laptops and browsing rela
 The server will send a JSON response containing the following fields:
 
 - requestId (UUID): The same UUID as the one passed in the request.
-- products (array of strings): An array of strings containing the list of products that can be advertised.
+- products (array of strings): An array of strings containing the list of products IDs that can be advertised.
 - winUrl (string): The URL that should be called upon impression.
 - clickUrl (string): The URL that should be called when the advertisement is clicked.
 
