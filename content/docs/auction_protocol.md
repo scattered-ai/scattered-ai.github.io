@@ -23,7 +23,7 @@ The request structure consists of the following fields:
 - scenarioId (UUID, required): A UUID that identifies the scenario being used. The IDs are provided by us and agreed upon with the client.
 - user (object, optional): An object containing information about the user.
 - device (object, optional): An object containing information about the device used by the user.
-- browsing (object, optional): An object containing information about the site context, such as keywords or categories.
+- site (object, optional): An object containing information about the site context, such as keywords or categories.
 - currentSession (object, optional): An object containing information about the user's current browsing session in the e-shop.
 
 ### User Object
