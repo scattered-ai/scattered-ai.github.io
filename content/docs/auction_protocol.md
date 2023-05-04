@@ -10,3 +10,96 @@ weight: 1
 ---
 
 # Auction protocol
+
+This documentation explains the required JSON structure for client. Clients should send HTTP requests containing JSON payloads that conform to the structure outlined below.
+
+
+## Request Structure
+
+The request structure consists of the following fields:
+
+- requestId (UUID, required): A universally unique identifier (UUID) that identifies the request.
+- domainName (string, required): The domain making the request. This is agreed upon with the client and stays the same in all requests.
+- scenarioId (UUID, required): A UUID that identifies the scenario being used. The IDs are provided by us and agreed upon with the client.
+- user (object, optional): An object containing information about the user.
+- device (object, optional): An object containing information about the device used by the user.
+- browsing (object, optional): An object containing information about the site context, such as keywords or categories.
+- currentSession (object, optional): An object containing information about the user's current browsing session in the e-shop.
+
+### User Object
+
+The user object has the following field:
+
+- userId (string): A string that identifies the user.
+
+### Device Object
+
+The device object has the following fields:
+
+- mobile (object, optional): An object containing information about the mobile app used by the user.
+    - appVersion (string, optional): The version of the mobile app.
+- desktop (object, optional): An object containing information about the web app used by the user.
+    - userAgent (string, optional): The user agent string of the user's browser.
+
+### Browsing Object
+
+The browsing object has the following fields:
+
+- keywords (array of strings): An array of strings containing the search keywords, if the user used a search engine.
+- categories (array of strings): An array of strings containing the category IDs, if the user was browsing categories.
+
+### CurrentSession Object
+
+The currentSession object has the following fields:
+
+- visitedCategories (array of strings): An array of strings containing the IDs of the visited product categories.
+- productsViewed (array of strings): An array of strings containing the IDs of the products viewed by the user.
+- currentCart (array of strings, optional): An array of strings containing the IDs of the products in the user's shopping cart.
+
+
+### JSON Example
+
+```json
+{
+  "requestId": "550e8400-e29b-41d4-a716-446655440000",
+  "domainName": "example.com",
+  "scenarioId": "853e8400-e29b-41d4-a716-446655440001",
+  "user": {
+    "userId": "user123"
+  },
+  "device": {
+    "mobile": {
+      "appVersion": "1.0.0"
+    }
+  },
+  "browsing": {
+    "keywords": ["laptop", "gaming"]
+  },
+  "currentSession": {
+    "visitedCategories": ["laptops", "accessories"],
+    "productsViewed": ["prod1", "prod2"],
+    "currentCart": ["prod1"]
+  }
+}
+```
+
+In this example, a mobile user is searching for gaming laptops and browsing related categories. They have viewed two products and added one of them to their shopping cart.
+
+
+## Response Structure
+
+The server will send a JSON response containing the following fields:
+
+- requestId (UUID): The same UUID as the one passed in the request.
+- products (array of strings): An array of strings containing the list of products that can be advertised.
+- winUrl (string): The URL that should be called upon impression.
+- clickUrl (string): The URL that should be called when the advertisement is clicked.
+
+```json
+{
+  "requestId": "550e8400-e29b-41d4-a716-446655440000",
+  "products": ["prod3", "prod4", "prod5"],
+  "winUrl": "https://scattered.eu/win?cid=33333333-1111-0000-0000-000000000000&bidid=33333333-3333-3333-3333-333333333333&brid=321&impid=1234&prc=12.23&bid=434673",
+  "clickUrl": "https://scattered.eu/click?brid=550e8400-e29b-41d4-a716-446655440000&lid=550e8400-e29b-41d4-a716-446655440000&prc=80"
+}
+```
