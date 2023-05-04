@@ -103,3 +103,4 @@ The server will send a JSON response containing the following fields:
   "clickUrl": "https://scattered.eu/click?brid=550e8400-e29b-41d4-a716-446655440000&lid=550e8400-e29b-41d4-a716-446655440000&prc=80"
 }
 ```
+
